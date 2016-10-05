@@ -12,6 +12,7 @@ import static reactor.bus.selector.Selectors.$;
 @Component
 public class EngineBootstrapper {
 
+    public static final String PRIMARY_NOTIFICATION_KEY = "hello-update";
     private EventBus eventBus;
     private NotificationReceiver receiver;
 
@@ -23,6 +24,6 @@ public class EngineBootstrapper {
 
     @PostConstruct
     public void init() {
-        eventBus.on($("hello-update"), receiver);
+        eventBus.on($(PRIMARY_NOTIFICATION_KEY), receiver);
     }
 }
